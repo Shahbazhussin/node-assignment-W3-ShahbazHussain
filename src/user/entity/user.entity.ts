@@ -18,11 +18,11 @@ export class User {
     @Column()
     password: string;
 
-    @OneToMany((_type) => Products , product => product.user , {eager : true})
+    @OneToMany((_type) => Products , product => product.user , {eager : false})
     @Exclude({toPlainOnly:true})
     products : Products[]
 
-    @OneToMany((_type) => Category , category => category.user , {eager : true})
+    @OneToMany((_type) => Category , category => category.user , {eager : false})
     @Exclude({toPlainOnly:true})
     categories: Category[]
 };

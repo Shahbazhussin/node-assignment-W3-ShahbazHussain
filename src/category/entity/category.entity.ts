@@ -12,10 +12,9 @@ export class Category {
     @Column()
     name: string;
 
-    @ManyToOne((_type) => User , user => user.categories , { onDelete : 'CASCADE'})
-    user : User
+    @ManyToOne((_type) => User , user => user.categories)
+    user : User 
 
-    @OneToMany((_type) => Products , product => product.category , {onDelete : 'CASCADE'})
-    @Exclude({toPlainOnly:true})
+    @OneToMany((_type) => Products , product => product.category, {eager:true})
     products : Products[]
 }

@@ -1,3 +1,4 @@
+import { Exclude } from "class-transformer";
 import { Category } from "src/category/entity/category.entity";
 import { User } from "src/user/entity/user.entity";
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
@@ -17,10 +18,12 @@ export class Products {
     @Column()
     price: number
 
-    @ManyToOne((_type) => User , user => user.products , {onDelete:'CASCADE'})
+    @ManyToOne((_type) => User , user => user.products , {eager : false})
+    @Exclude({toPlainOnly:true})
     user : User
 
-    @ManyToOne((_type) => Category , category => category.products)
+    @ManyToOne((_type) => Category , category => category.products, {eager:false})
+    @Exclude({toPlainOnly:true})
     category : Category
 
 }
