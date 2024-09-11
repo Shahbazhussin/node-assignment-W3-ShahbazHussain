@@ -6,7 +6,6 @@ import { CustomExceptionFilter } from './custom/custom.filter';
 
 dotenv.config();
 async function bootstrap() {
-  console.log('main');
   const app = await NestFactory.create(AppModule);
   app.useGlobalPipes(new ValidationPipe());
   app.useGlobalFilters(new CustomExceptionFilter());

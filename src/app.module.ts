@@ -20,7 +20,7 @@ dotenv.config();
       synchronize: true,
     }),
     ConfigModule.forRoot({
-      isGlobal: true
+      isGlobal: true   //accessed using config service
     }),
     UserModule,
     ProductsModule,

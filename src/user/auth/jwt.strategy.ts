@@ -11,16 +11,12 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     constructor(
         private userRepository: UserRepository
     ) {
-    console.log('inside strategy extractiuon');
-
         super(
             {
-                
                 secretOrKey: '12345',
                 jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken()
             }
         )
-        console.log('Token', ExtractJwt.fromAuthHeaderAsBearerToken())
     }
 
     async validate(payload: Payload): Promise<User> {
